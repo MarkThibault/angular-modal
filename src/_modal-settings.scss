@@ -1,0 +1,116 @@
+//module variables
+$modal-overlay-animation-show: $fade-in !default;
+$modal-overlay-animation-hide: $fade-out !default;
+$modal-overlay-background-color: rgba( $black, 0.3 ) !default;
+
+$modal-animation-show: modalFlyIn 0.6s $cubic-bezier 0s 1 forwards !default;
+$modal-animation-hide: modalFlyOut 0.6s $cubic-bezier 0s 1 forwards !default;
+$modal-transition: all 0.6s $cubic-bezier !default;
+
+$modal-z-index: 240;
+$modal-header-padding: $content-padding-topBottom $content-padding-leftRight !default;
+$modal-header-icon-fill-color: $white !default;
+$modal-header-line-height: 1 !default;
+$modal-header-title-font-size: 1.5rem !default;
+$modal-main-background-color: $white !default;
+$modal-main-line-height: 1 !default;
+$modal-content-font-size: $content-font-size !default;
+$modal-content-min-height: 5rem !default;
+$modal-content-padding: $content-padding-topBottom $content-padding-leftRight !default;
+$modal-footer-background-color: $white !default;
+$modal-footer-border-top: 0.1rem solid $haze-3 !default;
+
+//media query changes
+$modal-media-query-mobile-break: $spa-break-point !default;
+$modal-media-query-vertical-break: $vertical-break !default;
+$modal-footer-button-mobile-border-radius: 0 !default;
+$modal-max-height: calc(100vh - 2rem) !default;
+$modal-max-width: calc(100vw - 2rem) !default;
+$modal-border-radius: $border-radius !default;
+$modal-box-shadow:  $whiteframe-shadow-24dp !default;
+$modal-footer-padding: $content-padding-topBottom $content-padding-leftRight !default;
+
+//modal sizes
+$modal-size-small: 30rem !default;
+$modal-size-medium: 45rem !default;
+$modal-size-large: 60rem !default;
+
+//modal types
+$modal-information-background-color: $astral-1 !default;
+$modal-information-color: $white !default;
+$modal-information-background-color-hover: $nile-blue !default;
+$modal-information-color-hover: $white !default;
+
+$modal-action-background-color: $astral-1 !default;
+$modal-action-color: $white !default;
+$modal-action-background-color-hover: $nile-blue !default;
+$modal-action-color-hover: $white !default;
+
+$modal-add-background-color: $astral-1 !default;
+$modal-add-color: $white !default;
+$modal-add-background-color-hover: $nile-blue !default;
+$modal-add-color-hover: $white !default;
+
+$modal-export-background-color: $astral-1 !default;
+$modal-export-color: $white !default;
+$modal-export-background-color-hover: $nile-blue !default;
+$modal-export-color-hover: $white !default;
+
+$modal-edit-background-color: $astral-1 !default;
+$modal-edit-color: $white !default;
+$modal-edit-background-color-hover: $nile-blue !default;
+$modal-edit-color-hover: $white !default;
+
+$modal-preview-background-color: $astral-1 !default;
+$modal-preview-color: $white !default;
+$modal-preview-background-color-hover: $nile-blue !default;
+$modal-preview-color-hover: $white !default;
+
+$modal-confirmation-background-color: $apple !default;
+$modal-confirmation-color: $white !default;
+$modal-confirmation-background-color-hover: $apple-3 !default;
+$modal-confirmation-color-hover: $white !default;
+
+$modal-warning-background-color: $ecstasy !default;
+$modal-warning-color: $white !default;
+$modal-warning-background-color-hover: $red-stage !default;
+$modal-warning-color-hover: $white !default;
+
+$modal-delete-background-color: $ecstasy !default;
+$modal-delete-color: $white !default;
+$modal-delete-background-color-hover: $red-stage !default;
+$modal-delete-color-hover: $white !default;
+
+$modal-error-background-color: $persian-red !default;
+$modal-error-color: $white !default;
+$modal-error-background-color-hover: $old-brick !default;
+$modal-error-color-hover: $white !default;
+
+
+@keyframes modalFlyIn {
+	0% {
+		opacity: 0;
+		transform: translateY(-2.5rem);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes modalFlyOut {
+	0% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	95% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 0;
+		transform: translateY(-10rem);
+	}
+}

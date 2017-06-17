@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png" />
+	<title>Angular Modal Examples</title>
+</head>
+
+<body>
+	<main ng-controller="MainController as main">
+		<h1>Sizes</h1>
+		<button type="button" class="Button Button--primary" ng-click="main.openSizeExampleModal('small')">Small</button>
+		<button type="button" class="Button Button--primary" ng-click="main.openSizeExampleModal('medium')">Medium</button>
+		<button type="button" class="Button Button--primary" ng-click="main.openSizeExampleModal('large')">Large</button>
+	
+        <h1>Type</h1>
+		<button type="button" class="Button Button--primary" ng-click="main.openTypeExampleModal('information')">Information</button>
+		<button type="button" class="Button Button--primary" ng-click="main.openTypeExampleModal('action')">Action</button>
+		<button type="button" class="Button Button--primary" ng-click="main.openTypeExampleModal('add')">Add</button>
+		<button type="button" class="Button Button--primary" ng-click="main.openTypeExampleModal('edit')">Edit</button>
+		<button type="button" class="Button Button--primary" ng-click="main.openTypeExampleModal('preview')">Preview</button>
+		<button type="button" class="Button Button--confirm" ng-click="main.openTypeExampleModal('confirmation')">Confirmation</button>
+		<button type="button" class="Button Button--warning" ng-click="main.openTypeExampleModal('warning')">Warning</button>
+		<button type="button" class="Button Button--warning" ng-click="main.openTypeExampleModal('delete')">Delete</button>
+		<button type="button" class="Button Button--reject" ng-click="main.openTypeExampleModal('error')">Error</button>
+
+        <h1>Resize to Id</h1>
+        <button type="button" class="Button Button--primary" ng-click="main.openResizeModalToIdModal()">Fit to box below</button>
+        <div id="ResizeModal" class="ResizeToIdBox"></div>
+    </main>
+</body>
+<!-- Size Example -->
+<script type="text/ng-template" id="/SizeExample">
+    <angular-modal type="information" size="{{modal.inj}}" spinner="false">
+        <angular-modal-header>Header</angular-modal-header>
+        <angular-modal-content>
+            <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac fringilla nisl. Integer aliquet urna lorem, sit amet suscipit lectus venenatis et. Curabitur non efficitur enim. Aliquam non elit non dolor accumsan mollis in vel urna. Proin mattis bibendum mi, a hendrerit magna suscipit eget. Curabitur maximus nulla vitae dolor mollis, sodales mollis neque facilisis. Vivamus mattis neque augue, in efficitur mauris semper vel. Aenean est sem, eleifend at tristique at, varius vel velit. Curabitur semper pellentesque mattis. Morbi in purus sollicitudin, aliquam massa non, iaculis augue. Nulla varius lobortis felis in iaculis.
+
+            Phasellus erat magna, commodo dictum elit in, consequat convallis tortor. Aliquam placerat felis magna, nec fringilla arcu varius et. Aliquam ut mi purus. Maecenas at quam in ex faucibus pellentesque. Phasellus ultrices mauris in sem volutpat, eget mattis augue gravida. In hac habitasse platea dictumst. In hac habitasse platea dictumst.
+
+            In ullamcorper, turpis a tristique accumsan, turpis purus lacinia libero, a vulputate justo tortor eget metus. Mauris condimentum nisi ut orci consectetur varius. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vivamus luctus velit arcu, in gravida nibh vulputate vel. Morbi tempor dui id volutpat egestas. Phasellus rhoncus a orci quis iaculis. Duis tristique elit suscipit arcu iaculis, sed gravida magna blandit. Nullam finibus, risus ut consequat varius, turpis lectus faucibus elit, sit amet volutpat mauris lorem in metus. Mauris ligula tortor, tincidunt eget mollis id, suscipit id nisl.
+            </p>
+        </angular-modal-content>
+        <angular-modal-footer>
+            <button class="Button Button--primary" type="submit" ng-click="modal.close('submit')">Submit</button>
+            <button class="Button Button--secondary" type="button" ng-click="modal.close('secondary')">Secondary</button>
+            <button class="Button Button--cancel" type="button" ng-click="modal.close()">Cancel</button>
+        </angular-modal-footer>
+    </angular-modal>
+</script>
+
+<!-- Type Example -->
+<script type="text/ng-template" id="/TypeExample">
+    <angular-modal type="{{modal.inj}}" size="small" spinner="false">
+        <angular-modal-header>Header</angular-modal-header>
+        <angular-modal-content>
+            <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac fringilla nisl. Integer aliquet urna lorem, sit amet suscipit lectus venenatis et. Curabitur non efficitur enim. Aliquam non elit non dolor accumsan mollis in vel urna. Proin mattis bibendum mi, a hendrerit magna suscipit eget. Curabitur maximus nulla vitae dolor mollis, sodales mollis neque facilisis. Vivamus mattis neque augue, in efficitur mauris semper vel. Aenean est sem, eleifend at tristique at, varius vel velit. Curabitur semper pellentesque mattis. Morbi in purus sollicitudin, aliquam massa non, iaculis augue. Nulla varius lobortis felis in iaculis.
+            </p>
+        </angular-modal-content>
+        <angular-modal-footer>
+            <button class="Button Button--primary" type="submit" ng-click="modal.close('submit')">Submit</button>
+            <button class="Button Button--secondary" type="button" ng-click="modal.close('secondary')">Secondary</button>
+            <button class="Button Button--cancel" type="button" ng-click="modal.close()">Cancel</button>
+        </angular-modal-footer>
+    </angular-modal>
+</script>
+
+<!-- Append To Example -->
+<script type="text/ng-template" id="/ResizeModalToIdExample">
+    <div class="CustomModal">
+        <div>CustomModal</div>
+        <h1 ng-click="modal.close()">X</h1>
+    </div>
+</script>
+
+</html>

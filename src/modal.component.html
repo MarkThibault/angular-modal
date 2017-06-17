@@ -1,0 +1,13 @@
+﻿<div class="Modal Modal--{{$ctrl.type}} Modal--{{$ctrl.size}}">
+	<div class="Modal-header" ng-if="$ctrl.headerTranscludePresent">
+		<div class="Modal-icon" ng-bind-html="$ctrl.currentIcon"></div>
+		<div class="Modal-title" ng-transclude="angularModalHeader"></div>
+	</div>
+	<div class="Modal-main" ng-if="$ctrl.contentTranscludePresent">
+		<div class="Modal-loadingContainer" ng-if="$ctrl.spinner">
+			<div class="spinner-icon" title="loading...">loading...</div>
+		</div>
+		<div class="Modal-content" ng-transclude="angularModalContent"></div>
+	</div>
+	<div class="Modal-footer" ng-if="$ctrl.footerTranscludePresent" ng-transclude="angularModalFooter"></div>
+</div>

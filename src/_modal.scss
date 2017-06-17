@@ -1,0 +1,355 @@
+@import "modal-settings";
+
+// prevents body from scrolling while modal is open
+body.ngdialog-open {
+	overflow: hidden;
+}
+
+// component
+.ModalWrapper {
+	//layout
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+	justify-content: center;
+    left: 0;
+	height: 100vh;
+	overflow: hidden;
+	position: fixed;
+    top: 0;
+	width: 100vw;
+	z-index: $modal-z-index;
+	
+	// decendents
+	.ngdialog-overlay {
+		//layout
+		left: 0;
+		height: 100vh;
+		width: 100vw;
+		position: fixed;
+		top: 0;
+		z-index: 1;
+
+		//theme
+		animation: $modal-overlay-animation-show;
+		background: $modal-overlay-background-color;
+	}
+
+	.ngdialog-content {
+		//layout
+		display: flex;
+		z-index: 999;
+		
+		//theme
+		animation: $modal-animation-show;
+
+		// this is for angular component element
+		> .ng-isolate-scope {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+
+	&.ngdialog-closing .ngdialog-overlay {
+		//theme
+		animation: $modal-overlay-animation-hide;
+	}
+
+	&.ngdialog-closing .ngdialog-content {
+		//theme
+		animation: $modal-animation-hide;
+	}
+
+	&--resizeModal .ngdialog-content {
+		position: fixed;
+	}
+}
+
+// component
+.Modal {
+	//layout
+	display: flex;
+	flex-direction: column;
+	max-height: 100vh;
+	max-width: 100vw;
+	overflow: auto;
+
+	//theme
+	transition: $modal-transition;
+
+	// decendents
+	&-header {
+		//layout
+		align-items: center;
+		display: flex;
+		flex-shrink: 0;
+		padding: $modal-header-padding;
+
+		//theme
+		line-height: $modal-header-line-height;
+	}
+
+	&-icon {
+		//layout
+		display: flex;
+		flex-direction: column;
+		flex-shrink: 0;
+		height: 1.5rem;
+		margin-right: 0.5rem;
+		width: 1.5rem;
+
+		//theme
+		fill: $modal-header-icon-fill-color;
+	}
+
+	&-title {
+		//theme
+		font-size: $modal-header-title-font-size;
+	}
+
+	&-main {
+		//layout
+		flex-direction: column;
+		flex-grow: 1;
+		flex-shrink: 0;
+		overflow: hidden;
+		
+		//theme
+	    background-color: $modal-main-background-color;
+		line-height: $modal-main-line-height;
+		word-wrap: break-word;
+	}
+
+	&-loadingContainer, &-content {
+		//layout
+		display: flex;
+		flex-direction: column;		
+		flex-grow: 1;
+		min-height: $modal-content-min-height;
+		padding: $modal-content-padding;
+	}
+
+	&-loadingContainer {
+		//layout
+		align-items: center;
+		justify-content: center;
+	}
+
+	// &-loadingContainer .spinner-icon {
+	// 	width: 2rem;
+	// 	height: 2rem;
+	// }
+
+	&-loadingContainer.hide-spinner {
+		//layout
+		display: none;
+	}
+
+	&-loadingContainer + &-content {
+		//layout
+		display: none;
+	}
+
+	&-content {
+		p {
+			font-size: $modal-content-font-size;
+			margin-top: 0;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+		img {
+			//layout
+			display: block; //Foundation override
+			margin: 0 auto;
+		}
+	}
+	
+	&-footer {
+		//layout		
+		flex-shrink: 0;
+	
+		// ng-scope is targeted because of component transclude creating extra container
+		& .ng-scope {
+			//layout
+			display: flex;
+			flex-direction: row-reverse;
+			flex-shrink: 0;
+			flex-wrap: wrap-reverse;
+
+			//theme
+			background-color: $modal-footer-background-color;
+			border-top: $modal-footer-border-top;
+		}
+	}
+
+	// modifiers
+	@mixin createModalType($color, $background-color, $background-color-hover) {
+		$baseComponentClass: '.Modal';
+
+		& #{$baseComponentClass}-header,
+		& .Button--primary {
+        	//theme
+			color: $color;
+			background-color: $background-color;
+		}
+
+		& .Button--primary:hover, & .Button--primary:focus {
+        	//theme
+			background-color: $background-color-hover;
+		}
+	}
+
+	&--information {
+		@include createModalType(
+			$modal-information-color,
+			$modal-information-background-color,
+			$modal-information-background-color-hover
+		);
+	}
+
+	&--action {
+		@include createModalType(
+			$modal-action-color,
+			$modal-action-background-color,
+			$modal-action-background-color-hover
+		);
+	}
+
+	&--add {
+		@include createModalType(
+			$modal-add-color,
+			$modal-add-background-color,
+			$modal-add-background-color-hover
+		);
+	}
+
+	&--export {
+		@include createModalType(
+			$modal-export-color,
+			$modal-export-background-color,
+			$modal-export-background-color-hover
+		);
+	}
+
+	&--edit {
+		@include createModalType(
+			$modal-edit-color,
+			$modal-edit-background-color,
+			$modal-edit-background-color-hover
+		);
+	}
+
+	&--preview {
+		@include createModalType(
+			$modal-preview-color,
+			$modal-preview-background-color,
+			$modal-preview-background-color-hover
+		);
+	}
+
+	&--confirmation {
+		@include createModalType(
+			$modal-confirmation-color,
+			$modal-confirmation-background-color,
+			$modal-confirmation-background-color-hover
+		);
+	}
+
+	&--warning {
+		@include createModalType(
+			$modal-warning-color,
+			$modal-warning-background-color,
+			$modal-warning-background-color-hover
+		);
+	}
+
+	&--delete {
+		@include createModalType(
+			$modal-delete-color,
+			$modal-delete-background-color,
+			$modal-delete-background-color-hover
+		);
+	}
+
+	&--error {
+		@include createModalType(
+			$modal-error-color,
+			$modal-error-background-color,
+			$modal-error-background-color-hover
+		);
+	}
+}
+
+@media(max-width: $modal-media-query-mobile-break) {
+	.Modal {
+		//layout
+		height: 100vh;
+		width: 100vw;
+
+        &-footer .Button {
+			//layout
+			flex-grow: 1;
+
+			//theme
+			border-radius: $modal-footer-button-mobile-border-radius;
+		}
+	}
+}
+
+@media(min-width: $modal-media-query-mobile-break) {
+	//component
+	.Modal {
+		//layout
+		max-height: $modal-max-height;
+		max-width: $modal-max-width;
+
+		//theme
+		border-radius: $modal-border-radius;
+		box-shadow: $modal-box-shadow;
+
+		// decendents
+		&-footer .ng-scope {
+			//layout
+			padding: $modal-footer-padding;
+
+			//theme
+			//border-top: 0.1rem solid $gray-lighter;
+
+            & .Button {
+				//layout
+                margin-left: 0.5rem;
+            }
+		}
+
+		// modifiers
+		&--small {
+			//layout
+			width: $modal-size-small;
+		}
+
+		&--medium {
+			//layout
+			width: $modal-size-medium;
+		}
+
+		&--large {
+			//layout
+			width: $modal-size-large;
+		}
+	}
+}
+
+@media(min-height: $modal-media-query-vertical-break) {
+	// component	
+	.Modal {
+		overflow: hidden;
+
+		&-main {
+			flex-shrink: 1;
+			overflow: auto;
+		}
+	}
+}
