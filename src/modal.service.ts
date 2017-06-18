@@ -1,9 +1,7 @@
 ﻿import * as angular from "angular";
 import * as ngDialog from "ng-dialog";
 
-interface IModalSettings extends ngDialog.IDialogOpenOptions {
-    inj: any;
-}
+import * as Modal from "./index.d";
 
 export default class ModalService {
     showSpinner: boolean = false;
@@ -11,11 +9,11 @@ export default class ModalService {
 
     static $inject = ["ngDialog", "$timeout"];
     constructor(
-        private ngDialog: ngDialog.IDialogService,
+        private ngDialog: angular.dialog.IDialogService,
         private $timeout: ng.ITimeoutService
     ) { }
 
-    openModal(modalSettings: IModalSettings) {
+    openModal(modalSettings: Modal.ModalSettings) {
         modalSettings.template = angular.isString(modalSettings) ? modalSettings : modalSettings.template;
         modalSettings.controller = modalSettings.controller ? modalSettings.controller : "AngularModalController";
         modalSettings.controllerAs = modalSettings.controllerAs ? modalSettings.controllerAs : "modal";

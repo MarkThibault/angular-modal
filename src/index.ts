@@ -4,7 +4,7 @@ import * as ngDialog from "ng-dialog";
 
 import ModalController from "./modal.controller";
 import ModalService from "./modal.service";
-import { ModalComponentController, ModalComponent } from "./modal.component";
+import ModalComponent from "./modal.component";
 
 angular
     .module("angularModalModule", ["ngDialog"])
@@ -23,5 +23,4 @@ angular
     }])
     .controller("AngularModalController", ModalController)
     .service("angularModalService", ModalService)
-    .controller("angularModalComponentController", ModalComponentController)
     .component("angularModal", new ModalComponent());

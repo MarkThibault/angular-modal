@@ -1,14 +1,14 @@
-import ModalService from "../../src/modal.service";
+import * as angularModal from "../../src/index.d";
 
 export default class MainController {
 
     static $inject = ["angularModalService"];
     constructor(
-        private angularModalService: ModalService
+        private angularModalService: angularModal.ModalService
     ) {}
 
     openSizeExampleModal(size) {
-        const settings = {
+        const settings: angularModal.ModalSettings = {
             template: "/SizeExample",
             inj: size
         };
@@ -19,7 +19,7 @@ export default class MainController {
     }
 
     openTypeExampleModal(type) {
-        const settings = {
+        const settings: angularModal.ModalSettings = {
             template: "/TypeExample",
             inj: type
         };
@@ -30,7 +30,7 @@ export default class MainController {
     }
 
     openResizeModalToIdModal() {
-        const settings = {
+        const settings: angularModal.ModalSettings = {
             template: "/ResizeModalToIdExample",
             inj: {
                 resizeModalId: "ResizeModal"

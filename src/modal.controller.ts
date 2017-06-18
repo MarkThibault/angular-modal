@@ -8,9 +8,9 @@ export default class ModalController {
 
     static $inject = ["$scope", "angularModalService", "ngDialog", "injected"];
     constructor(
-        private $scope: ngDialog.IDialogScope,
+        private $scope: angular.dialog.IDialogScope,
         private angularModalService: ModalService,
-        private ngDialog: ngDialog.IDialogService,
+        private ngDialog: angular.dialog.IDialogService,
         private injected: any
     ) {
         this.ngDialogId = this.$scope.ngDialogId;

@@ -1,6 +1,6 @@
 ﻿import ModalService from "./modal.service";
 
-export class ModalComponent implements ng.IComponentOptions {
+export default class ModalComponent implements ng.IComponentOptions {
     bindings: any = {
         size: "@",
         spinner: "=",
