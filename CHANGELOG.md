@@ -1,3 +1,7 @@
+## [1.0.5] - 2017-06-18
+### Removed
+- Types from ignore files
+
 ## [1.0.4] - 2017-06-17
 ### Added
 - Type definitionss
